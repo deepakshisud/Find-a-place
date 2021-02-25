@@ -9,6 +9,8 @@ const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
 const methodOverride = require('method-override');
 
+const Places = require('./models/places');
+
 const app = express();
 
 mongoose.connect('mongodb://localhost:27017/findMyPlace', {
