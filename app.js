@@ -30,10 +30,22 @@ app.engine('ejs',ejsMate);
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 
+app.get('/all', (req, res) => {
+    res.render('all');
+})
+
+
+app.get('/place', (req, res) => {
+    res.render('place');
+})
+
 app.get('/find', (req, res) => {
     res.render('find');
 })
 
+app.put('/find', (req, res) => {
+    res.redirect('place');
+})
 
 app.listen(3000, () => {
     console.log("Listening on port 3000");
