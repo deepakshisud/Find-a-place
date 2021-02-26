@@ -8,6 +8,9 @@ const path = require('path');
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
 const methodOverride = require('method-override');
+const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
+const mapBoxToken = process.env.MAPBOX_TOKEN;
+const geocoder = mbxGeocoding({accessToken : mapBoxToken})
 
 const Places = require('./models/places');
 
@@ -45,7 +48,8 @@ app.get('/find', (req, res) => {
     res.render('find');
 })
 
-app.put('/find', (req, res) => {
+app.put('/find', async(req, res) => {
+
     res.redirect('place');
 })
 
