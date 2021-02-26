@@ -40,17 +40,21 @@ app.get('/all', (req, res) => {
 })
 
 
-app.get('/place', (req, res) => {
-    res.render('place');
-})
+// app.get('/place', (req, res) => {
+//     console.log(req.body);
+//     res.render('place');
+// })
 
 app.get('/find', (req, res) => {
     res.render('find');
 })
 
-app.put('/find', async(req, res) => {
-
-    res.redirect('place');
+app.put('/place', async(req, res) => {
+    // const geoData = await geocoder.forwardGeocode({
+    //     query: req.body.safetypin.address,
+    //     limit: 1
+    // }).send()
+    res.render('place');
 })
 
 app.listen(3000, () => {

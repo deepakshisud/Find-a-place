@@ -34,10 +34,10 @@
               <div class="col-4"></div>
               <div class="col-4">
                 <div class="text-center py-5">
-                    <form action="/place?_method=PUT" method="PUT">
+                    <form action="/place?_method=PUT" method="POST">
                         <div class="input-group py-4 px-5 mx-auto flex-nowrap">
                             <span class="input-group-text" id="addon-wrapping"><i class="fas fa-map-marker-alt"></i></span>
-                            <input type="text" class="form-control" placeholder="Find a place" aria-label="Username" aria-describedby="addon-wrapping">
+                            <input type="text" class="form-control" placeholder="Find a place" aria-describedby="addon-wrapping" name="location">
                         </div>
                         <button class="btn btn-dark">Search</button>
                     </form>
