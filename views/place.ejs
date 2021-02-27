@@ -11,6 +11,10 @@
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+    <script>
+      const mapToken = '<%- process.env.MAPBOX_TOKEN%>';
+
+    </script>
 </head>
 <body class="d-flex flex-column vh-100">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -34,11 +38,11 @@
         <script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
         <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
         <script>
-          mapboxgl.accessToken = 'pk.eyJ1IjoiZGVlcGFrc2hpIiwiYSI6ImNrbGQ3NTZoejBudngyb21qZ3VtYzZuengifQ.mT5giYgLgVFvEUfN-LUiAw';
+          mapboxgl.accessToken = mapToken;
         var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
         mapboxClient.geocoding
         .forwardGeocode({
-        query: 'Wellington, New Zealand',
+        query: place.properties.name,
         autocomplete: false,
         limit: 1
         })

@@ -12,7 +12,7 @@ const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
 const mapBoxToken = process.env.MAPBOX_TOKEN;
 const geocoder = mbxGeocoding({accessToken : mapBoxToken})
 
-const Places = require('./models/places');
+const Place = require('./models/places');
 
 const app = express();
 
@@ -50,11 +50,14 @@ app.get('/find', (req, res) => {
 })
 
 app.put('/place', async(req, res) => {
-    // const geoData = await geocoder.forwardGeocode({
-    //     query: req.body.safetypin.address,
-    //     limit: 1
-    // }).send()
-    res.render('place');
+    const geoData = await geocoder.forwardGeocode({
+    query: req.body.properties.name,
+    limit: 1
+    }).send()
+    const place = new Place(req.body);
+    place.geometry = geoData.body.features[0].geometry;
+    await place.save();
+    res.render('place', {place});
 })
 
 app.listen(3000, () => {
