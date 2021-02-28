@@ -25,7 +25,8 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link" aria-current="page" href="#">All Places</a>
+              <a class="nav-link" href="/find">Find new</a>
+              <a class="nav-link active" aria-current="page" href="/all">All Places</a>
               <a class="nav-link" href="#">About</a>
             </div>
           </div>
@@ -41,7 +42,7 @@
         container: 'map',
         style: 'mapbox://styles/mapbox/dark-v10',
         center: [78.9629, 20.5937],
-        zoom: 2
+        zoom: 1
         });
          
         map.on('load', function () {
@@ -74,9 +75,9 @@
         'step',
         ['get', 'point_count'],
         '#51bbd6',
-        100,
+        5,
         '#f1f075',
-        750,
+        10,
         '#f28cb1'
         ],
         'circle-radius': [
