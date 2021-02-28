@@ -50,6 +50,10 @@ app.get('/find', (req, res) => {
     res.render('find');
 })
 
+app.get('/about', (req,res) => {
+    res.render('about');
+})
+
 app.put('/place', async(req, res) => {
     const geoData = await geocoder.forwardGeocode({
     query: req.body.properties.name,
