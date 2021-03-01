@@ -40,6 +40,11 @@ app.get('/all', async(req, res) => {
     res.render('all', {p});
 })
 
+app.get('/allPlaces', async(req, res) => {
+    const p = await Place.find({});
+    res.render('allPlaces', {p});
+})
+
 
 // app.get('/place', (req, res) => {
 //     console.log(req.body);
