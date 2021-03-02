@@ -51,7 +51,7 @@ app.get('/allPlaces', async(req, res) => {
 //     res.render('place');
 // })
 
-app.get('/find', (req, res) => {
+app.get('/', (req, res) => {
     res.render('find');
 })
 
