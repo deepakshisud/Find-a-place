@@ -11,12 +11,12 @@ const methodOverride = require('method-override');
 const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
 const mapBoxToken = process.env.MAPBOX_TOKEN;
 const geocoder = mbxGeocoding({accessToken : mapBoxToken})
-
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/findMyPlace' ;
 const {Place} = require('./models/places');
 
 const app = express();
-
-mongoose.connect('mongodb://localhost:27017/findMyPlace', {
+// 'mongodb://localhost:27017/findMyPlace'
+mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
